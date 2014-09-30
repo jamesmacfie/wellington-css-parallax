@@ -1,0 +1,288 @@
+/* Variables */
+$green: #53d76a;
+$grey: #d3d3d3;
+$welcomeText: #670e12;
+
+/* Fonts */
+@font-face {
+  font-family: 'Cylburn';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/Cylburn.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Homestead One';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/Homestead-One.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Homestead Two';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/Homestead-Two.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Homestead Three';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/Homestead-Three.ttf') format('truetype');
+}
+
+/* Base */
+* {
+  margin:0;
+  padding:0;
+}
+
+body {
+  font-family: helvetica;
+}
+
+/* Utility */
+.hideMe {
+  visibility: hidden;
+}
+
+/* Text */
+.title {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.welcome {
+  color: $welcomeText;
+  font-family: Cylburn;
+  font-size: 180px;
+}
+
+.homestead {
+    color: #f9f8d6;
+    font-size: 200px;
+}
+
+.homesteadOne {
+    font-family: 'Homestead One';
+}
+
+.homesteadTwo {
+    font-family: 'Homestead Two';
+}
+
+.homesteadThree {
+    font-family: 'Homestead Three';
+}
+
+/* Parallax */
+.parallax {
+  font-size: 200%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 300px;
+}
+
+.parallaxGroup {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.parallaxLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parallaxLayer-fore {
+  transform: translateZ(90px) scale(.7);
+  z-index: 1;
+}
+
+.parallaxLayer-base {
+  transform: translateZ(0);
+  z-index: 4;
+}
+
+.parallaxLayer-back {
+  transform: translateZ(-300px) scale(2);
+  z-index: 3;
+}
+
+.parallaxLayer-deep {
+  transform: translateZ(-600px) scale(3);
+  z-index: 2;
+}
+
+.parallaxLayer-fore.parallaxLayer-faster {
+  transform: translateZ(180px) scale(.4);
+}
+
+/* Parallax modifiers */
+.parallaxLayer-drab {
+  background-color: #b2b7ba;
+}
+
+.parallaxLayer-alexandra {
+  background-color: #524159;
+}
+
+.parallaxLayer-hands, .parallaxLayer-graffiti, .parallaxLayer-coffee, .parallaxLayer-planesBg, .parallaxLayer-planesFg,
+.parallaxLayer-outsideGradient {
+  background-size: cover;
+}
+.parallaxLayer-hands {
+  background-image: url('../images/hands.jpg');
+}
+
+.parallaxLayer-graffiti {
+  background-image: url('../images/graffiti.jpg');
+}
+
+.parallaxLayer-coffee {
+  background-image: url('../images/coffee.jpg');
+}
+
+.parallaxLayer_textContent {
+  background-color: #fff;
+}
+
+.parallaxLayer-planesBg {
+  background-image: url('../images/planes_bg.jpg');
+}
+
+.parallaxLayer-planesFg {
+  background-image: url('../images/planes_fg.png');
+}
+
+.parallaxLayer-outsideGradient {
+  background-image: url('../images/outsideGradient.jpg');
+  opacity: 0.6;
+}
+
+/* style the groups
+--------------------------------------------- */
+
+#group1 {
+  z-index: 5; /* slide over group 2 */
+}
+
+#group2 {
+  z-index: 3; /* slide under groups 1 and 3 */
+}
+
+#group3 {
+  z-index: 4; /* slide over group 2 and 4 */
+}
+
+#group4 {
+  z-index: 2; /* slide under group 3 and 5 */
+}
+
+#group5 {
+  z-index: 3; /* slide over group 4 and 6 */
+}
+
+#group6 {
+  z-index: 2; /* slide under group 5 and 7 */
+}
+
+#group7 {
+  z-index: 3; /* slide over group 7 */
+}
+
+
+/* Debug */
+.debugCheck:checked ~ .parallax .parallaxGroup {
+  transform: translate3d(500px, 0, -500px) rotateY(35deg);
+}
+
+.debugCheck:checked ~ .parallax .parallaxLayer {
+  opacity: 0.9;
+  outline: 2px solid black;
+}
+
+.debugCheck + .debugLabel .debugState:after {
+  content: 'on';
+}
+
+.debugCheck:checked + .debugLabel .debugState:after {
+  content: 'off';
+}
+
+.debugCheck, .debugLabel {
+  position: absolute;
+  z-index: 9;
+}
+
+.debugCheck {
+  left: 0px;
+  top: 0px;
+}
+
+.debugLabel {
+  left: 50px;
+  top: 4px;
+}
+
+/* iOS checkbox - http://codepen.io/joshnh/pen/hjbuH */
+.iosCheckbox {
+  appearance: none;
+  background-color: darken(#fff, 2%);
+  border: 1px solid $grey;
+  border-radius: 26px;
+  box-shadow: inset 0 0 0 15px #fff;
+
+  cursor: pointer;
+  height: 28px;
+  transition: border .25s .15s,
+              box-shadow .25s .3s,
+              padding .25s;
+  width: 44px;
+  vertical-align: top;
+
+  &:after {
+    background-color: #fff;
+    border: 1px solid $grey;
+    border-radius: 24px;
+    box-shadow: inset 0 -3px 3px hsla(0,0%,0%,.025),
+      0 1px 4px hsla(0,0%,0%,.15),
+      0 4px 4px hsla(0,0%,0%,.1);
+    content: '';
+    display: block;
+    height: 24px;
+    left: 0;
+    position: absolute;
+    right: 16px;
+    top: 0;
+    transition: border .25s .15s,
+      left .25s .1s,
+      right .15s .175s;
+  }
+  &:checked {
+    border-color: $green;
+    box-shadow: inset 0 0 0 15px $green;
+    padding-left: 18px;
+    transition: border .25s,
+      box-shadow .25s,
+      padding .25s .15s;
+
+    &:after {
+      border-color: $green;
+      left: 16px;
+      right: 0;
+      transition: border .25s,
+        left .15s .25s,
+        right .25s .175s;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Parallax</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <input class="debugCheck iosCheckbox" type="checkbox" id="debug" />
+  <label class="debugLabel" for="debug">Turn skew <span class="debugState"></span></label>
+
+  <div class="parallax">
+    <div id="group1" class="parallaxGroup">
+      <div class="parallaxLayer parallaxLayer-base parallaxLayer-drab">
+        <div class="welcome title">Welcome</div>
+      </div>
+    </div>
+    <div id="group2" class="parallaxGroup">
+      <div class="parallaxLayer parallaxLayer-back parallaxLayer-hands"></div>
+      <div class="parallaxLayer parallaxLayer-base"></div>
+
+    </div>
+    <div id="group3" class="parallaxGroup">
+      <div class="parallaxLayer parallaxLayer-base parallaxLayer-planesBg"></div>
+      <div class="parallaxLayer parallaxLayer-fore parallaxLayer-planesFg parallaxLayer-faster"></div>
+    </div>
+    <div id="group4" class="parallaxGroup">
+      <div class="parallaxLayer parallaxLayer-deep parallaxLayer_textContent"></div>
+      <div class="parallaxLayer parallaxLayer-back">
+        <div class="title">Here is some <span class="hideMe">text</spn></div>
+      </div>
+      <div class="parallaxLayer parallaxLayer-base ">
+        <div class="title"><span class="hideMe">Here is some </span>text</div>
+      </div>
+    </div>
+    <div id="group5" class="parallaxGroup">
+      <div class="parallaxLayer parallaxLayer-base parallaxLayer-graffiti"></div>
+      <div class="parallaxLayer parallaxLayer-base parallaxLayer-outsideGradient"></div>
+      <div class="parallaxLayer parallaxLayer-base">
+        <div class="title homestead homesteadOne">Text</div>
+      </div>
+
+      <div class="parallaxLayer parallaxLayer-fore">
+        <div class="title homestead homesteadTwo">Text</div>
+      </div>
+      <div class="parallaxLayer parallaxLayer-fore parallaxLayer-faster">
+        <div class="title homestead homesteadThree">Text</div>
+      </div>
+    </div>
+    <div id="group6" class="parallaxGroup">
+      <div class="parallaxLayer parallaxLayer-base parallaxLayer_textContent">
+        <div class="title">Woo!</div>
+      </div>
+  </div>
+
+</body>
+</html>
