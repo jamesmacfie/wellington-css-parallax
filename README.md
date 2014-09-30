@@ -5,4 +5,4 @@ Wellington CSS Meetup - Parallax
 
 `npm install`
 
-`server 8080` (or however you like to load up a local server)
+Load up a local server
